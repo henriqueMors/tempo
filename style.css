@@ -17,7 +17,7 @@ body {
 .container {
     position: relative;
     width: 400px;
-    height: 605px;
+    height: 150px;
     background: #fff;
     padding: 28px 32px;
     overflow: hidden;
@@ -37,7 +37,7 @@ body {
 .search-box input {
     color: #06283d;
     width: 80%;
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     padding: 32px;
@@ -92,7 +92,7 @@ body {
 
 .weather-box .temperature span {
     position: absolute;
-    font-size: 4rem;
+    font-size: 1.5rem;
     margin-left: 4px;
 }
 
@@ -164,5 +164,22 @@ body {
     font-size: 22px;
     font-weight: 500;
     margin-top: 12px;
+}
+
+.weather-box, .weather-details {
+    scale: 0;
+    opacity: 0;
+}
+
+.fade-in {
+    animation: 0.5s fadeIn forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        scale: 1;
+        opacity: 1;
+    }
 }
 
