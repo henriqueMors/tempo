@@ -5,15 +5,15 @@ const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
 
 search.addEventListener('click', () => {
-    const APIKey = /*'inserir a chave do api de tempo' API KEY*/;
-    const city = document.querySelector('.search-box input').ariaValueMax;
+    const APIKey = '9af4d04a773ef01fa39250782b88e884';
+    const city = document.querySelector('.search-box input').value;
 
     if (city === '')
         return;
 
-    fetch(/*` INSERIR URL API`*/).then(response => response.json()).then(json => {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`).then(response => response.json()).then(json => { /* https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metri&appid=${APIKey} */
 
-        if (json.cod ==='404') {
+        if (json.cod === '404') {
             container.style.height = '400px';
             weatherBox.style.display = 'none';
             weatherDetails.style.display = 'none';
@@ -59,7 +59,7 @@ search.addEventListener('click', () => {
 
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>ºC</span>`;
             description.innerHTML = `${json.weather[0].description}`;
-            humidity.innerHTML = `${json.mais.humidity}%`;
+            humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
 
             weatherBox.style.display = '';
